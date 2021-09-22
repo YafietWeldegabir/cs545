@@ -1,0 +1,37 @@
+
+.confirmation{
+    color:red;
+    font-weight: bold;
+}
+.loginInput{
+   
+    display: grid;
+    grid-template-areas: 'x y'
+                          'k w'
+                          'a a';
+    grid-gap: 5px 10px;
+    width:300px;
+    height: 100px;
+}
+#usernameLabel{
+    grid-area: x;
+}
+#username{
+    grid-area: y;
+}
+#passwordLabel{
+    grid-area: k;
+}
+#password{
+    grid-area: w;
+}
+#submitBtn{
+    grid-area: a;
+    font-weight: bold;
+    background-color: rgb(47, 47, 207);
+    font-size: 16px;
+    color:white;
+}
+h3{
+    color: rgb(4, 8, 41);
+}
