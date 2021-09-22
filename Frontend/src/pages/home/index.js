@@ -1,18 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import { Route, Switch, useHistory } from 'react-router-dom';
-import Products from '../../containers/Products/Products';
-import { authenticationService } from '../../services/authentication.service';
-import { Role } from '../../helpers/role';
-import Orders from '../buyer/orders';
-// import Sellers from '../buyer/sellers';
-import { AppBar, Button, Chip, Avatar, Box } from '@material-ui/core';
-import Container from '@material-ui/core/Container';
-import ProductPage from '../common/product-page';
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import { Route, Switch, useHistory } from "react-router-dom";
+import Products from "../../containers/Products/Products";
+import { authenticationService } from "../../services/authentication.service";
+import { Role } from "../../helpers/role";
+import Orders from "../buyer/orders";
+import Sellers from '../buyer/sellers';
+import { AppBar, Button, Chip, Avatar, Box } from "@material-ui/core";
+import Container from "@material-ui/core/Container";
+import ProductPage from "../common/product-page";
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -30,18 +30,18 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(8),
   },
   link: {
-    zIndex: 'right',
-    justify: 'space-between',
+    zIndex: "right",
+    justify: "space-between",
     margin: theme.spacing(1, 1.5),
-    float: 'left',
+    float: "left",
   },
   card: {
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
   },
   cardMedia: {
-    paddingTop: '56.25%', // 16:9
+    paddingTop: "56.25%", // 16:9
   },
   cardContent: {
     flexGrow: 1,
@@ -72,19 +72,19 @@ export default function Home() {
   useEffect(() => {
     if (authenticationService.currentUserValue) {
       if (authenticationService.currentUserValue.role === Role.Admin) {
-        history.push('/admin');
+        history.push("/admin");
       }
       if (authenticationService.currentUserValue.role === Role.Seller) {
-        history.push('/seller');
+        history.push("/seller");
       }
     }
   }, [history]);
 
   const redirectToSignup = () => {
-    history.push('/register');
+    history.push("/register");
   };
   const redirectToLogin = () => {
-    history.push('/login');
+    history.push("/login");
   };
 
   return (
@@ -97,10 +97,12 @@ export default function Home() {
             color="red"
             className={nav_bar.title}
             onClick={() => {
-              history.push('/');
+              history.push("/");
             }}
           >
-           <h3><a>E-Store  HOME</a></h3>
+            <h3>
+              <a>Group 1 CS-545 ProJect HOME</a>
+            </h3>
           </Typography>
 
           {authenticationService.currentUserValue && (
@@ -108,20 +110,20 @@ export default function Home() {
               <Button
                 color="inherit"
                 onClick={() => {
-                  history.push('/buyer/orders');
+                  history.push("/buyer/orders");
                 }}
               >
                 Orders
               </Button>
 
-              {/* <Button
+              <Button
                 color="inherit"
                 onClick={() => {
-                  history.push('/buyer/seller');
+                  history.push("/buyer/seller");
                 }}
               >
                 Follow Sellers
-              </Button> */}
+              </Button>
               <Chip
                 avatar={<Avatar></Avatar>}
                 label={
@@ -134,7 +136,7 @@ export default function Home() {
                 color="inherit"
                 onClick={() => {
                   authenticationService.logout();
-                  history.push('/');
+                  history.push("/");
                 }}
               >
                 Sign-Out
@@ -165,10 +167,9 @@ export default function Home() {
         </Toolbar>
       </AppBar>
 
-
       <Switch>
         <Route path="/buyer/orders" component={Orders} />
-        {/* <Route path="/buyer/sellers" component={Sellers} /> */}
+        <Route path="/buyer/sellers" component={Sellers} />
         <Route path="/buyer/products/:id" component={ProductPage} />
         <Route path="/">
           <Box component="span" m={1}>

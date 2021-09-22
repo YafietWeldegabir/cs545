@@ -43,17 +43,17 @@ export default function Dashboard() {
               history.push('/');
             }}
           >
-            E-SHOP
+            Group 1 CS-545 ProJect
           </Typography>
 
           <Link to="/admin" className={nav_bar.link}>
             <Button color="inherit">Home</Button>
           </Link>
           <Link to="/admin/reviews" className={nav_bar.link}>
-            <Button color="inherit">Reviews</Button>
+            <Button color="inherit">Pending Reviews</Button>
           </Link>
           <Link to="/admin/sellers" className={nav_bar.link}>
-            <Button color="inherit">Sellers</Button>
+            <Button color="inherit">Pending Sellers</Button>
           </Link>
           <Chip avatar={<Avatar></Avatar>} label="Admin" color="inherit" />
           <Button
